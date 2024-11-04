@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto auto;
+    height: 100vh;                         
+    width: 100%;
+                          
+}
+
+/* The following sets two transitions, a transform and a background-color change*/
+.grid-item {
+  transition: transform 0.5s ease, background-color 0.5s ease;
+  text-align: center;
+  height: 300px;
+  width: 400px;
+}
+
+/* This transition will happen when user HOVERS OVER grid item.*/
+.grid-item:hover {
+  background-color: #888888;
+}
+
+/* This transition will happen when user CLICKS on grid item.*/
+.grid-item:active {
+  background-color: #000000;
+}
+
+.grid-item .questions,
+.grid-item .answers {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.grid-item:hover .questions {
+    opacity: 100;
+}
+
+.grid-item:active .answers  {
+    opacity: 100;
+    color: white;
+}
+
+.questions, .answers {
+    margin: auto;
+}
