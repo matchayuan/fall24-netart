@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KEEP SCROLLING</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start; /* Align content to the top */
+            justify-content: center;
+        }
+
+        .flex-item {
+            flex: 1;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h2 {
+            text-decoration: underline;
+            text-align: left; /* Align heading to the left */
+        }
+
+        .progress-bar-container {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column; /* Arrange label above progress bar */
+            align-items: flex-start;
+            width: 80%;
+        }
+
+        .progress-name {
+            font-weight: bold;
+            margin-bottom: 5px; /* Space between label and progress bar */
+        }
+
+        .progress-bar {
+            height: 20px;
+            width: 100%; /* Adjusted width for consistency */
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar-fill-before {
+            height: 100%;
+            background-color: #007BFF;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60%; /* Example for Motivation, adjust dynamically */
+            transition: width 0.3s ease-in-out;   
+        }
+
+        .progress-bar-fill-after {
+            height: 100%;
+            background-color: green;
+            position: absolute;
+            top: 0;
+            left: 60%; /* Starts at the end of the "before" fill */
+            width: 5%; /* Represents the additional progress */
+            transition: width 0.3s ease-in-out;
+            border-radius: 0px 5px 5px 0px;
+        }
+
+        .progress-bar-text {
+            margin-top: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #28a745; /* Green for positive feedback */
+            white-space: nowrap; /* Prevent wrapping */
+        }
+
+        /* Add red styling for negative stats */
+        .negative-progress {
+            background-color: red;
+        }
+
+        .negative-text {
+            color: #d9534f; /* Red color for negative feedback */
+        }
+
+        /* Bottom container with left and right buttons */
+        .bottom-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-top: 1px solid #ddd;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .button {
+            display: inline-block;
+            text-decoration: none;
+            font-size: 16px;
+            color: white;
+            background-color: #007BFF;
+            padding: 12px 30px; /* Increased padding for rectangular appearance */
+            width: 45%; /* Ensures both buttons fit side by side */
+            text-align: center; /* Centers text inside the button */
+            border-radius: 5px; /* Removes rounded corners, making the button rectangular */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .button:active {
+            background-color: #004085;
+            transform: scale(1);
+        }
+
+        .neutral-text {
+          color: darkgray;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="content-wrapper">
+        <div class="flex-item">
+            <p>You miss your class. Your attendance grade takes a hit.</p>
+        </div>
+
+        <div class="flex-item">
+            <h2>Current stats:</h2>
+            <div class="progress-bar-container">
+                <div class="progress-name">Motivation (30/100)</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill-before" style="width: 30%;"></div>
+                    <div class="progress-bar-fill-after" style="width: 0%; left: 30%;"></div>
+                </div>
+                <span class="progress-bar-text negative-text">-10 Motivation</span>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-name">Health (45/100)</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill-before" style="width: 50%;"></div>
+                    <div class="progress-bar-fill-after" style="width: 0%; left: 50%;"></div>
+                </div>
+                <span class="progress-bar-text neutral-text">+0 Health</span>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-name">Grades (65/100)</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill-before" style="width: 65%;"></div>
+                    <div class="progress-bar-fill-after" style="width: 0%; left: 65%;"></div>
+                </div>
+                <span class="progress-bar-text negative-text">-5 Grades</span>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-name">Social (0/100)</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill-before" style="width: 0%;"></div>
+                    <div class="progress-bar-fill-after" style="width: 0%; left: 0%;"></div>
+                </div>
+                <span class="progress-bar-text neutral-text">+0 Social</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
